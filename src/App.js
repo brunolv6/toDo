@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { AddInput } from './components/add-input/add-input.component'
+
 import './App.css';
 
 class App extends Component {
@@ -27,16 +28,10 @@ class App extends Component {
       <div className="App App-header"> 
         <div>
           <h1>Lista To Do</h1>
-          <input autoFocus type="text" placeholder="o que fará?"
-            onChange={this.handleChange}
-          />
-          <button onClick={this.handleAdd}>add</button>
+          <AddInput todo={this.state.todo} handleChange={this.handleChange}
+            handleAdd={this.handleAdd}
+          /> 
         </div>
-        {
-          this.state.todo.map(td => (
-            <h3> {td} </h3>
-          ))
-        }  
       </div>
     );
   }
