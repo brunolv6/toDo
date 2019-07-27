@@ -8,7 +8,8 @@ class App extends Component {
     super();
     this.state = {
       inputValue: "",
-      todo: []
+      todo: [],
+      red: false
     }
   }
 
@@ -23,14 +24,31 @@ class App extends Component {
     this.setState({inputValue: ""});
   }
 
+  handleColor = () => {
+    this.setState(prevState => ({red: !prevState.red }));
+  }
+
   render(){
+    const cor = {
+      backgroundColor: 'red'
+    }
+
     return(
       <div className="App App-header"> 
         <div>
           <h1>Lista To Do</h1>
-          <AddInput todo={this.state.todo} handleChange={this.handleChange}
+          <AddInput 
+            todo={this.state.todo} 
+            handleChange={this.handleChange}
             handleAdd={this.handleAdd}
           /> 
+          {
+            (this.state.red) 
+            ?
+            <button style={cor} onClick={this.handleColor}>Change Color</button>
+            :
+            <button onClick={this.handleColor}>Change Color</button>
+          }
         </div>
       </div>
     );

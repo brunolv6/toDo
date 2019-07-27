@@ -12,7 +12,7 @@ export const AddInput = ({ todo, handleChange, handleAdd }) => (
         </div>
         {
           todo.map(td => (
-            <h3> {td} </h3>
+            <h3 key={td}> {td} </h3>
           ))
         }
     </div>
